@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::layout(~{::section})">
+<head>
+<script>
+
+/* function search()
+{
+	console.log("HIIIII");
+}
+ */
+</script>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+</head>
+<body>
+     <section>
+             <div class="container">
+                <div class="card mt-3">
+                   <div class="card-body">
+                         <h3 class="text-center">Your Contacts </h3>
+                         <div class="search-container my-3">
+                         
+                             <input onkeyup="search()" type="text"  id="search-input" class="form-control" placeholder="Search contact">
+	                              <div class="search-result">
+	                                
+	                             </div>
+                         </div>
+                         <table class="table ">
+							  <thead>
+							    <tr>
+							      <th scope="col">#Id</th>
+							      <th scope="col">Name</th>
+							      <th scope="col">Phone</th>
+							      <th scope="col">EmailId</th>
+							      <th scope="col">Action</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="c: ${contacts}">
+							      <th scope="row" th:text="${c.cId}"></th>
+							      <td>
+							         <img class="my_profile_pic" src="" th:src="@{'/img/'+${c.image}}"></img>
+							         
+							         
+							         <span th:text="${c.name}"></span>
+							      </td>
+							      <td th:text="${c.phone}"></td>
+							      <td >
+							       <a th:href="@{'/user/contactSingle/'+${c.cId}}">
+							       <span th:text="${c.email}"></span>
+							       </a>
+							      
+							      </td>
+							      <td>
+							      <a th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger btn-sm">Delete</a>
+							      
+							      <form method="post" th:action="@{'/user/updateContact/'+${c.cId}}" >
+							         <button type="submit" class="btn btn-success btn-sm mt-2">Update</button>
+							      </form>
+							      
+							     
+							      </td>
+							    </tr>
+							   
+							  </tbody>
+							</table>
+                   
+                   
+                   </div>
+                
+                
+                </div>
+             
+             </div>
+     </section>
+</body>
+</html>

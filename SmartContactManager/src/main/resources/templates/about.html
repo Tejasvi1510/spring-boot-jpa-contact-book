@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+</head>
+<body>
+      <section>
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-8 offset-md-2">
+                          <div class="card mt-5">
+				                 <div class="card-body text-center">
+				                  <div>
+				                   <img class="contact_book" style="height:400px;width:400px;" th:src="@{/img/contact_book.png}"></img>
+				                  </div>
+				                   <h3 class="font-italic text-secondary mb-3">Using this application ,you can save your contacts,delete them</h3>
+				                   
+				                 </div>
+				              </div>
+                     
+                     
+                     </div>
+                  
+                  </div>
+		             
+               </div>
+      </section>
+      
+</body>
+</html>

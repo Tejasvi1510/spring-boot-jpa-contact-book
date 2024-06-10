@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${title}"></title>
+</head>
+<body>
+  <section>
+         <div class="container">
+            <div class="card mt-5" th:if="${contact}">
+               <div class="card-body text-center">
+                    <img style="height:250px;width:300px;" class="my_profile_pic" src="" th:src="@{'/img/'+${contact.image}}"></img>
+                      <h3 th:text="${contact.name}" ></h3>
+                     <table class="table mt-4">
+						 
+						    <tr>
+						      <th scope="col">Id</th>
+						       <th th:text="${contact.cId}" ></th>
+						    </tr>
+						     <tr>
+						       <th >Name</th>
+						       <th th:text="${contact.name}" ></th>
+						    </tr>
+						     <tr>
+						       <th >Phone</th>
+						       <th th:text="${contact.phone}" ></th>
+						    </tr>
+						     <tr>
+						       <th >Email</th>
+						       <th th:text="${contact.email}" ></th>
+						    </tr>
+						     <tr>
+						       <th >Work</th>
+						       <th th:text="${contact.work}" ></th>
+						    </tr>
+						     <tr>
+						       <th >Description</th>
+						       <th th:text="${contact.description}" ></th>
+						    </tr>
+						    
+						 <!--  <tbody>
+						    <tr>
+						     
+						      <td>Mark</td>
+						      <td>Otto</td>
+						      <td>@mdo</td>
+						    </tr>
+						   
+						  </tbody> -->
+						</table>
+						<div class="container">
+						<!-- <form method="post" th:action="@{/user/processUpdateContact}" 
+                                  th:object="${contact}" >
+						      <button class="btn btn-success btn-sm">Update</button>
+						</form>
+						       
+						       <button class="btn btn-danger btn-sm">Delete</button>
+						    </div>
+						             -->         
+               </div>
+            
+            </div>
+            <h3 th:unless="${contact}">You are not allowed to see other people contacts</h3>
+         
+         </div>				
+  </section>
+
+</body>
+</html>
